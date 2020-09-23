@@ -1,0 +1,72 @@
+<div class="page-wrapper">
+    <div class="container-fluid pt-25">
+        <!-- Row -->
+
+        
+        <!-- Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">customer List</h6>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#" class="pull-left inline-block full-screen">
+                                <i class="zmdi zmdi-fullscreen"></i>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body row pa-0">
+                            <div class="table-wrap"  >
+                                <div class="table-responsive">
+                                    <table class="table display product-overview border-none" id="support_table"  >
+                                        <thead>
+                                            <tr>
+                                              
+																	<th>First Name</th>
+																	<th>Last Name</th>
+																	<th>Email</th>
+																	<th>Address</th>
+																	<th>State</th>
+																	<th>country </th>
+																	<th>phone number</th>
+																	<th>password</th>
+																	<th>confirm password</th>
+																	<th>Action</th>
+															
+                                            </tr>
+                                        </thead>
+                    
+                                        <tbody>
+                                            <tr *ngFor="let user of users">
+                                                                <td>user.first_name</td>
+																<td>user.last_name</td>
+																<td> user.email</td>
+																<td>user.address </td>
+																<td>user.state</td>
+																<td>user.country</td>
+																<td>user.phone_number</td>
+																<td>user.pass_word</td>
+                                                                <td>user.confirm_password</td>
+          <td><a [routerLink]="['/edit-users, users_id']" class="btn btn-primary">Edit</a></td>
+          <td><a [routerLink]="" class="btn btn-danger">Delete</a></td>
+                                        </tr>
+                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>	
+                        </div>	
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Row -->
+    </div>
+    <!-- Footer -->
+    
+    <!-- /Footer -->
+    
+</div>
