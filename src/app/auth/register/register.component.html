@@ -1,0 +1,154 @@
+
+			<!-- Main Content -->
+			<div class="page-wrapper pa-0 ma-0 auth-page">
+				<div class="container-fluid">
+					<!-- Row -->
+					<div class="table-struct full-width full-height">
+						<div class="table-cell vertical-align-middle auth-form-wrap">
+							<div class="auth-form  ml-auto mr-auto no-float">
+								<div class="row">
+									<div class="col-sm-12 col-xs-12">
+										<div class="mb-30">
+											<h3 class="text-center txt-dark mb-10">Sign up to Goofy</h3>
+											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
+										</div>	
+										<div class="form-wrap">
+											<form action="#">
+                                                <div *ngIf="errors.length > 0" class="alert alert-danger">
+                                                    <ul *ngFor = "let error of errors">
+                                                        <li>{{ error }}</li>
+                                                    </ul>
+                                                    </div>
+												<div class="form-group">
+													<label class="control-label mb-10" for="exampleInputName_1">Username</label>
+													<input type="email" class="form-control" class="form-control"
+                                                    [(ngModel)] = "formData.username"
+                                                    name="username"
+                                                    #username = "ngModel"
+                                                    required>
+                                                </div>
+                                                <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="username.errors.required">
+                                                  Username is required
+                                                </div>
+                                              </div>
+												<div class="form-group">
+													<label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
+													<input type="email" class="form-control"   class="form-control"
+                                                    [(ngModel)] = "formData.email"
+                                                    name="email"
+                                                    #email = "ngModel"
+                                                    required>
+                                           </div>
+                                           <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                             class="alert alert-danger">
+                                             <div *ngIf="email.errors.required">
+                                               Email is required
+                                             </div>
+                                           </div>
+												<div class="form-group">
+													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
+                                                    <input type="password" class="form-control"
+                                                    [(ngModel)] = "formData.password"
+                                                    #password = "ngModel"
+                                                    name="password"
+                                                    required>
+                                           </div>
+                                           <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                             class="alert alert-danger">
+                                             <div *ngIf="password.errors.required">
+                                               Password is required
+                                             </div>
+                                           </div>
+												<div class="form-group">
+													<label class="pull-left control-label mb-10" for="exampleInputpwd_3">Confirm Password</label>
+													<input type="password" class="form-control"   [(ngModel)] = "formData.passwordConfirmation"
+                                                    #passwordConfirmation = "ngModel"
+                                                    name="passwordConfirmation"
+                                                    required>
+                                           </div>
+                                            <div *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)"
+                                             class="alert alert-danger">
+                                             <div *ngIf="passwordConfirmation.errors.required">
+                                               Confirm Password is required
+                                             </div>
+                                           </div>
+                                           <div class="form-group">
+                                            <label class="pull-left control-label mb-10" for="exampleInputpwd_3">Address</label>
+                                            <input type="address" class="form-control"   [(ngModel)] = "formData.address"
+                                            #address = "ngModel"
+                                            name="address"
+                                            required>
+                                   </div>
+                                    <div *ngIf="address.invalid && (address.dirty || address.touched)"
+                                     class="alert alert-danger">
+                                     <div *ngIf="address.errors.required">
+                                       Address is required
+                                     </div>
+                                   </div>
+                                   <div class="form-group">
+                                    <label class="pull-left control-label mb-10" for="exampleInputpwd_3">State</label>
+                                    <input type="state" class="form-control"   [(ngModel)] = "formData.state"
+                                    #state = "ngModel"
+                                    name="state"
+                                    required>
+                           </div>
+                            <div *ngIf="state.invalid && (state.dirty || state.touched)"
+                             class="alert alert-danger">
+                             <div *ngIf="state.errors.required">
+                               State is required
+                             </div>
+                           </div>
+                           <div class="form-group">
+                            <label class="pull-left control-label mb-10" for="exampleInputpwd_3">Country</label>
+                            <input type="country" class="form-control"   [(ngModel)] = "formData.country"
+                            #country = "ngModel"
+                            name="country"
+                            required>
+                   </div>
+                    <div *ngIf="country.invalid && (country.dirty || country.touched)"
+                     class="alert alert-danger">
+                     <div *ngIf="state.errors.required">
+                       Country is required
+                     </div>
+                   </div>
+                           <div class="form-group">
+                            <label class="pull-left control-label mb-10" for="exampleInputpwd_3">Phone Number</label>
+                            <input type="phonenumber" class="form-control"   [(ngModel)] = "formData.phonenumber"
+                            #phonenumber = "ngModel"
+                            name="phonenumber"
+                            required>
+                   </div>
+                    <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)"
+                     class="alert alert-danger">
+                     <div *ngIf="phonenumber.errors.required">
+                       Phone number is required
+                     </div>
+                   </div>
+												<div class="form-group">
+													<div class="checkbox checkbox-primary pr-10 pull-left">
+														<input id="checkbox_2" required="" type="checkbox">
+														<label for="checkbox_2"> I agree to all <span class="txt-primary">Terms</span></label>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group text-center">
+                                                 
+                                                    <button 
+                                                    (click) = "register()"
+                                                    type="submit" 
+                                                    class="btn btn-warning"
+                                                    >Register</button>												</div>
+											</form>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Row -->	
+				</div>
+				
+			</div>
+			<!-- /Main Content -->

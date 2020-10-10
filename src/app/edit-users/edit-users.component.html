@@ -29,7 +29,7 @@
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Users Register</h6>
+										<h6 class="panel-title txt-dark"> EDIT USERS</h6>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -38,38 +38,60 @@
 										<div class="row">
 											<div class="col-sm-12 col-xs-12">
 												<div class="form-wrap">
-													<form [formGroup]="" novalidate>														<div class="form-body">
+													<form [formGroup]="angForm" novalidate>
+														<div class="form-group">
 															<h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Person's Info</h6>
 															<hr class="light-grey-hr"/>
 															<div class="row">
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">First Name</label>
-																		<input type="text" class="form-control required" placeholder="first name" formControlName="first_name" #first_name >																	</div>
+																		<input type="text" class="form-control required" placeholder="first name" formControlName="first_name" #first_name [(ngModel)] = "users.first_name">																	</div>
 																	</div>
+																	<div *ngIf="angForm.controls['first_name'].invalid && (angForm.controls['first_name'].dirty || angForm.controls['first_name'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['first_name'].errors.required">
+																		  Frist Name is required.
+																		</div>
+																	  </div>
 																
 																<!--/span-->
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Last Name</label>
-																		<input type="text" class="form-control" placeholder="Last Name"formControlName="last_name" #last_name >
+																		<input type="text" class="form-control" placeholder="Last Name"formControlName="last_name" #last_name [(ngModel)] = "users.last_name" >
 																	</div>
+																	<div *ngIf="angForm.controls['last_name'].invalid && (angForm.controls['last_name'].dirty || angForm.controls['last_name'].touched)" class="-danger">
+																		<div *ngIf="angForm.controls['last_name'].errors.required">
+																		  Last Name is required.
+																		</div>
+																	  </div>
 																</div>
 																</div>							<!-- /Row -->
 															<div class="row">
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Email</label>
-																		<input type="text" class="form-control" placeholder="Email" formControlName="email" #email >
+																		<input type="text" class="form-control" placeholder="Email" formControlName="email" #email [(ngModel)] = "users.email">
 																	</div>
+																	<div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['email'].errors.required">
+																		  Email  is required.
+																		</div>
+																	  </div>
 
 																</div>
 																<!--/span-->
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">address</label>
-																		<input type="text" class="form-control" placeholder="address" formControlName="address" #address >
+																		<input type="text" class="form-control" placeholder="address" formControlName="address" #address [(ngModel)] = "users.address">
 																	</div>
+																	<div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['address'].errors.required">
+																		  address  is required.
+																		</div>
+																	  </div>
+
 																</div>
 																<!--/span-->
 															</div>
@@ -78,40 +100,67 @@
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">State</label>
-																		<input type="text" class="form-control" placeholder="state" formControlName="state" #state >
-																	
+																		<input type="text" class="form-control" placeholder="state" formControlName="state" #state [(ngModel)] = "users.state" >
 																	</div>
+																	<div *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['state'].errors.required">
+																		  State  is required.
+																		</div>
+																	  </div>
 																</div>			<!--/span-->
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Country</label>
-																		<input type="text" class="form-control" placeholder="country"formControlName="country" #country >
-																	
+																		<input type="text" class="form-control" placeholder="country"formControlName="country" #country  [(ngModel)] = "users.country">
 																	</div>
+																	<div *ngIf="angForm.controls['country'].invalid && (angForm.controls['country'].dirty || angForm.controls['country'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['country'].errors.required">
+																		  country  is required.
+																		</div>
+																	  </div>
+
 																</div>
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Phone number</label>
-																		<input type="text" class="form-control" placeholder="phone number" formControlName="phone_number" #phone_number >
+																		<input type="text" class="form-control" placeholder="phone number" formControlName="phone_number" #phone_number [(ngModel)] = "users.phone_number" >
 																	</div>
+																	<div *ngIf="angForm.controls['phone_number'].invalid && (angForm.controls['phone_number'].dirty || angForm.controls['phone_number'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['phone_number'].errors.required">
+																		  Phone Number  is required.
+																		</div>
+																	  </div>
+
 																</div>
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Password</label>
-																		<input type="text" class="form-control" placeholder="password" formControlName="pass_word" #pass_word >
+																		<input type="text" class="form-control" placeholder="password" formControlName="pass_word" #pass_word  [(ngModel)] = "users.pass_word">
 																	</div>
+																	<div *ngIf="angForm.controls['pass_word'].invalid && (angForm.controls['pass_word'].dirty || angForm.controls['pass_word'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['pass_word'].errors.required">
+																		  password  is required.
+																		</div>
+																	  </div>
 																</div>
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Confirm Password</label>
-																		<input type="text" class="form-control" placeholder="confirm password" formControlName="confirm_password" #confirm_password >
+																		<input type="text" class="form-control" placeholder="confirm password" formControlName="confirm_password" #confirm_password [(ngModel)] = "users.confirm_password">
 																	</div>
+																	<div *ngIf="angForm.controls['confirm_password'].invalid && (angForm.controls['pass_word'].dirty || angForm.controls['confirm_password'].touched)" class="danger">
+																		<div *ngIf="angForm.controls['confirm_password'].errors.required">
+													Confirm  password  is required.
+																		</div>
+																	  </div>
+																	
 																	</div>
 																<!--/span-->
 															</div>								</div>
 															<!-- /Row -->
-														<div class="form-actions mt-10">
-															<button class="btn btn-success  mr-10"> update</button>
+															<div class="form-group">
+																<button (click)="updateUsers(first_name.value, last_name.value, email.value, address.value, state.value, country.value, phone_number.value, pass_word.value, confirm_password.value)"
+																			[disabled]="angForm.pristine || angForm.invalid" class="btn btn-success  mr-10"> updateUsers</button>
 															<button type="button" class="btn btn-default">Cancel</button>
 														</div>
 													</form>

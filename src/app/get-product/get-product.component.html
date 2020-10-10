@@ -1,0 +1,72 @@
+<div class="page-wrapper">
+    <div class="container-fluid pt-25">
+        <!-- Row -->
+
+        
+        <!-- Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">customer List</h6>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#" class="pull-left inline-block full-screen">
+                                <i class="zmdi zmdi-fullscreen"></i>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body row pa-0">
+                            <div class="table-wrap"  >
+                                <div class="table-responsive">
+                                    <table class="table display product-overview border-none" id="support_table"  >
+                                        <thead>
+                                            <tr>
+                                              
+																	<th>Product Name</th>
+																	<th>SubText</th>
+																	<th>Delivery condition</th>
+																	<th>Status</th>
+																	<th>price</th>
+																	<th>Discount </th>
+																	<th>Category</th>
+																	<th>Description</th>
+																	<th>image</th>
+																	<th>Action</th>
+															
+                                            </tr>
+                                        </thead>
+                    
+                                        <tbody>
+                                            <tr *ngFor="let Product of product">          
+																<td>{{ Product.product }}</td>
+																<td>{{Product.subtext }}</td>
+																<td> {{Product.deliverycondition}}</td>
+																<td>{{Product.status}}</td>
+																<td>{{Product.price}}</td>
+																<td>{{Product.discount}}</td>
+                                                                <td>{{Product.category}}</td>
+                                                                <td>{{Product.description}}</td>
+                                                                <td>{{Product.image}}</td>
+          <td><a [routerLink]="['/edit-product, product_id']" class="btn btn-primary">Edit</a></td>
+          <td><a [routerLink]="" class="btn btn-danger">Delete</a></td>
+                                        </tr>
+                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>	
+                        </div>	
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Row -->
+    </div>
+    <!-- Footer -->
+    
+    <!-- /Footer -->
+    
+</div>

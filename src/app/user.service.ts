@@ -6,13 +6,14 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-
-  uri = 'http://localhost:3000/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+
+  uri = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) { }
 
-  users(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password) {
+  addUsers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password) {
     const obj = {
       first_name: first_name,
       last_name: last_name,
@@ -24,22 +25,22 @@ export class UserService {
       pass_word: pass_word,
       confirm_password: confirm_password
     };
-    console.log(obj);
-    this.http.post(`${this.uri}/users`, obj)
+    this.http.post(`${this.uri}`, obj)
         .subscribe(res => console.log('Done'));
 
   }
-  getusers() {
+  getUsers() {
     return this
            .http
-           .get(`${'http://localhost:3000/users'}`);
+           .get(`${this.uri}`);
+           
   }
-  editusers(id) {
+  editUsers(id) {
     return this
             .http
-            .get(`${this.uri}/edit/${id}`);
+            .get(`${this.uri}/${id}`);
     }
-    updateusers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password,  id) {
+    updateUsers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password,  id) {
 
       const obj = {
         first_name:first_name ,
@@ -52,16 +53,18 @@ export class UserService {
         pass_word:pass_word,
         confirm_password: confirm_password,
         };
-      this
-        .http
-        .post(`${this.uri}/update/${id}`, obj)
-        .subscribe(res => console.log('Done'));
+    
+      this.http.post(`${this.uri}/${id}`, obj)
+     // console.log(obj);
+          .subscribe(res => console.log('Done'));
     }
   
-   deleteusers(id) {
+    deleteusers(id) {
       return this
                 .http
-                .get(`${this.uri}/delete/${id}`);
+                .get(`${this.uri}/${id}`);
+             //   .subscribe(res => console.log('Done'));
+                
     }
 
  

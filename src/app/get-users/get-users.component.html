@@ -41,19 +41,18 @@
                                         </thead>
                     
                                         <tbody>
-                                            <tr *ngFor="let user of users">
-                                                                <td>user.first_name</td>
-																<td>user.last_name</td>
-																<td> user.email</td>
-																<td>user.address </td>
-																<td>user.state</td>
-																<td>user.country</td>
-																<td>user.phone_number</td>
-																<td>user.pass_word</td>
-                                                                <td>user.confirm_password</td>
-          <td><a [routerLink]="['/edit-users, users_id']" class="btn btn-primary">Edit</a></td>
-          <td><a [routerLink]="" class="btn btn-danger">Delete</a></td>
-                                        </tr>
+                                            <tr *ngFor="let users of users" >                      
+                                                              <td>{{users.first_name}}</td>
+																<td>{{users.last_name}}</td>
+																<td>{{users.email}}</td>
+																<td>{{users.address }}</td>
+																<td>{{users.state}}</td>
+																<td>{{users.country}}</td>
+																<td>{{users.phone_number}}</td>
+																<td>{{users.pass_word}}</td>
+                                                                <td>{{users.confirm_password}}</td>
+                                                                <td><a [routerLink]="['/edit-users', users._id]" class="btn btn-primary">Edit</a></td>
+                                                                <td><a (click) = "deleteusers(users._id)" class="btn btn-danger">Delete</a></td>
                                          </tbody>
                                     </table>
                                 </div>

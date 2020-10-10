@@ -9,8 +9,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./edit-users.component.css']
 })
 export class EditUsersComponent implements OnInit {
-  angForm: FormGroup;
   users: any = {};
+  angForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -21,25 +21,32 @@ export class EditUsersComponent implements OnInit {
 
   createForm() {
     this.angForm = this.fb.group({
-        person_name: ['', Validators.required ],
-        business_name: ['', Validators.required ],
-        business_gst_number: ['', Validators.required ]
+      first_name: ['', Validators.required ],
+      last_name: ['', Validators.required ],
+      email: ['', Validators.required ],
+      address: ['', Validators.required ],
+      state: ['', Validators.required ],
+      country: ['', Validators.required ],
+      phone_number: ['', Validators.required ],
+      pass_word: ['', Validators.required ],
+      confirm_password: ['', Validators.required ],
+      
       });
     }
 
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.us.editusers(params['id']).subscribe(res => {
+      this.us.editUsers(params['id']).subscribe(res => {
         this.users = res;
       });
     });
   }
 
-  updateusers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password ) {
+  updateUsers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password ) {
    this.route.params.subscribe(params => {
-      this.us.updateusers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password , params['id']);
-      this.router.navigate(['users']);
+      this.us.updateUsers(first_name, last_name, email, address, state, country, phone_number, pass_word, confirm_password , params['id']);
+      this.router.navigate(['get--users']);
    });
 }
 }

@@ -14,9 +14,14 @@ export class GetUsersComponent implements OnInit {
 
   ngOnInit() {
     this.us
-      .getusers()
+      .getUsers()
       .subscribe((data: User[]) => {
         this.users = data;
+      });
+    }
+    deleteusers(id) {
+      this.us.deleteusers(id).subscribe(res => {
+        console.log('Deleted');
       });
     }
   }

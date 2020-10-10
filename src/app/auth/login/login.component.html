@@ -1,0 +1,66 @@
+	<!-- Main Content -->
+			<div class="page-wrapper pa-0 ma-0 auth-page">
+				<div class="container-fluid">
+					<!-- Row -->
+					<div class="table-struct full-width full-height">
+						<div class="table-cell vertical-align-middle auth-form-wrap">
+							<div class="auth-form  ml-auto mr-auto no-float">
+								<div class="row">
+									<div class="col-sm-12 col-xs-12">
+										<div class="mb-30">
+											<h3 class="text-center txt-dark mb-10">Sign in to Goofy</h3>
+											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
+										</div>	
+										<div class="form-wrap">
+                                            <form [formGroup]="loginForm" (ngSubmit) = "login()">
+                                                <div class="form-group">
+                                                  <div *ngIf="notify" class="alert alert-success">
+                                                    {{ notify }}
+                                                  </div>
+                                                  <div *ngIf="errors.length > 0" class="alert alert-danger">
+                                                    <p *ngFor = "let error of errors">
+                                                        {{ error }}
+                                                    </p>
+                                                  </div>
+                                                  <label for="email">Email</label>
+                                                  <input type="email"
+                                                         class="form-control"
+                                                         formControlName="email">
+                                                </div>
+                                                <div *ngIf="isValidInput('email')"
+                                                  class="alert alert-danger">
+                                                  <div *ngIf="loginForm.controls['email'].errors.required">
+                                                    Email is required.
+                                                  </div>
+                                                  <div *ngIf="loginForm.controls['email'].errors.pattern">
+                                                    Must be a valid email format.
+                                                  </div>
+                                                </div>
+                                      
+                                                <div class="form-group">
+                                                  <label for="password">Password</label>
+                                                  <input type="password"
+                                                         class="form-control"
+                                                         formControlName ="password">
+                                                </div>
+                                                <div *ngIf="isValidInput('password')"
+                                                  class="alert alert-danger">
+                                                  <div *ngIf="loginForm.controls['password'].errors.required">
+                                                    Password is required.
+                                                  </div>
+                                                </div>
+                                                <button
+                                                [disabled]="!loginForm.valid"
+                                                type="submit" 
+                                                class="btn btn-warning"
+                                                >Sign In</button>
+                                              </form>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Row -->	
+				</div>
+		
